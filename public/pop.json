@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Forward",
+		"author": "Kris Keypovsky",
+		"image": "src/assets/pop.png",
+		"path_url": "src/assets/musics/pop/Kris_Keypovsky-Forward.mp3"
+	},
+	{
+		"name": "the red of your lips",
+		"author": "Kris Keypovsk",
+		"image": "src/assets/pop.png",
+		"path_url": "src/assets/musics/pop/Kris_Keypovsky-the_red_of_your_lips.mp3"
+	},
+	{
+		"name": "Sunset",
+		"author": "Polkavant",
+		"image": "src/assets/pop.png",
+		"path_url": "src/assets/musics/pop/Polkavant-Sunset.mp3"
+	},
+	{
+		"name": "Upside Down",
+		"author": "SUPERARE",
+		"image": "src/assets/pop.png",
+		"path_url": "src/assets/musics/pop/SUPERARE-Upside_Down.mp3"
+	},
+	{
+		"name": "TimTaj",
+		"author": "Island of Paradise",
+		"image": "src/assets/pop.png",
+		"path_url": "src/assets/musics/pop/TimTaj-Island_of_Paradise.mp3"
+	}
+]

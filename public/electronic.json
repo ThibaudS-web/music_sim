@@ -1,0 +1,32 @@
+[
+	{
+		"name": "Little Movie",
+		"author": "Eric Salazar",
+		"image": "src/assets/electronic.png",
+		"path_url": "src/assets/musics/electronic/Eric_Salazar-Little_Movie.mp3"
+	},
+	{
+		"name": "Greenish Blue",
+		"author": "Golden Grey",
+		"image": "src/assets/electronic.png",
+		"path_url": "src/assets/musics/electronic/Golden_Grey-Greenish_Blue.mp3"
+	},
+	{
+		"name": "Magenta Moon",
+		"author": "Line Noise",
+		"image": "src/assets/electronic.png",
+		"path_url": "src/assets/musics/electronic/Line_Noise-Magenta_Moon.mp3"
+	},
+	{
+		"name": "Eve",
+		"author": "Mindthings",
+		"image": "src/assets/electronic.png",
+		"path_url": "src/assets/musics/electronic/mindthings-Eve.mp3"
+	},
+	{
+		"name": "Psyche",
+		"author": "Wolf Asylum",
+		"image": "src/assets/electronic.png",
+		"path_url": "src/assets/musics/electronic/Wolf_Asylum-Psyche.mp3"
+	}
+]

@@ -1,25 +1,16 @@
-import { PlayList, RootObject } from "../models/Tracks"
-import { API_KEY } from "./apiKey"
+import Genres from "../enums/Genres"
+import Track from "../models/Track"
 
 class FetchingMusic {
-	private options = {
-		method: "GET",
-		headers: {
-			"X-RapidAPI-Key": `${API_KEY}`,
-			"X-RapidAPI-Host": "shazam.p.rapidapi.com"
+	async getTracksByGenre(genre: Genres): Promise<Track[]> {
+		try {
+			let data: Track[]
+			const result = await fetch(`http://localhost:5173/${genre}.json`)
+            data = await result.json()
+			return data
+		} catch {
+			throw new Error("Problem occured! Invalid JSON")
 		}
-	}
-
-	public async searchPlaylist() {
-		let data: RootObject
-		const result = await fetch(
-			"https://shazam.p.rapidapi.com/search?term=metallica&locale=en-US&limit=5",
-			this.options
-		)
-
-		data = await result.json()
-
-		return data
 	}
 }
 

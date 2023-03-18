@@ -1,0 +1,162 @@
+{
+	"electronic": [
+		{
+			"name": "Little Movie",
+			"author": "Eric Salazar",
+			"image": "src/assets/electronic.png",
+			"path_url": "src/assets/musics/electronic/Eric_Salazar-Little_Movie.mp3"
+		},
+		{
+			"name": "Greenish Blue",
+			"author": "Golden Grey",
+			"image": "src/assets/electronic.png",
+			"path_url": "src/assets/musics/electronic/Golden_Grey-Greenish_Blue.mp3"
+		},
+		{
+			"name": "Magenta Moon",
+			"author": "Line Noise",
+			"image": "src/assets/electronic.png",
+			"path_url": "src/assets/musics/electronic/Line_Noise-Magenta_Moon.mp3"
+		},
+		{
+			"name": "Eve",
+			"author": "Mindthings",
+			"image": "src/assets/electronic.png",
+			"path_url": "src/assets/musics/electronic/mindthings-Eve.mp3"
+		},
+		{
+			"name": "Psyche",
+			"author": "Wolf Asylum",
+			"image": "src/assets/electronic.png",
+			"path_url": "src/assets/musics/electronic/Wolf_Asylum-Psyche.mp3"
+		}
+	],
+	"country": [
+		{
+			"name": "Top and Bottom",
+			"author": "Derek Clegg",
+			"image": "src/assets/country.png",
+			"path_url": "src/assets/musics/country/Derek_Clegg-Top_and_Bottom.mp3"
+		},
+		{
+			"name": "Blind",
+			"author": "Derek Clegg",
+			"image": "src/assets/country.png",
+			"path_url": "src/assets/musics/country/Derek_Clegg-Blind.mp3"
+		},
+		{
+			"name": "Engine Jim",
+			"author": "HoliznaCC0",
+			"image": "src/assets/country.png",
+			"path_url": "src/assets/musics/country/HoliznaCC0-Engine_Jim.mp3"
+		},
+		{
+			"name": "John Lopker",
+			"author": "MAGA Fake Patriots",
+			"image": "src/assets/country.png",
+			"path_url": "src/assets/musics/country/John_Lopker-MAGA_Fake_Patriots.mp3"
+		},
+		{
+			"name": "Allways for You",
+			"author": "Lobo Loco",
+			"image": "src/assets/country.png",
+			"path_url": "src/assets/musics/country/Lobo_Loco-Allways_for_You.mp3"
+		}
+	],
+	"pop": [
+		{
+			"name": "Forward",
+			"author": "Kris Keypovsky",
+			"image": "src/assets/pop.png",
+			"path_url": "src/assets/musics/pop/Kris_Keypovsky-Forward.mp3"
+		},
+		{
+			"name": "the red of your lips",
+			"author": "Kris Keypovsk",
+			"image": "src/assets/pop.png",
+			"path_url": "src/assets/musics/pop/Kris_Keypovsky-the_red_of_your_lips.mp3"
+		},
+		{
+			"name": "Sunset",
+			"author": "Polkavant",
+			"image": "src/assets/pop.png",
+			"path_url": "src/assets/musics/pop/Polkavant-Sunset.mp3"
+		},
+		{
+			"name": "Upside Down",
+			"author": "SUPERARE",
+			"image": "src/assets/pop.png",
+			"path_url": "src/assets/musics/pop/SUPERARE-Upside_Down.mp3"
+		},
+		{
+			"name": "TimTaj",
+			"author": "Island of Paradise",
+			"image": "src/assets/pop.png",
+			"path_url": "src/assets/musics/pop/TimTaj-Island_of_Paradise.mp3"
+		}
+	],
+	"rock": [
+		{
+			"name": "Morning Dew",
+			"author": "1st Contact",
+			"image": "src/assets/rock.png",
+			"path_url": "src/assets/musics/rock/1st_Contact-Morning_Dew.mp3"
+		},
+		{
+			"name": "Post Mortem",
+			"author": "Kris Keypovsk",
+			"image": "src/assets/rock.png",
+			"path_url": "src/assets/musics/rock/Kris_Keypovsky-Post_Mortem.mp3"
+		},
+		{
+			"name": "She Haunts Me",
+			"author": "Mr Smith",
+			"image": "src/assets/rock.png",
+			"path_url": "src/assets/musics/rock/Mr_Smith-She_Haunts_Me.mp3"
+		},
+		{
+			"name": "Pop Rock",
+			"author": "Scott Holmes Music",
+			"image": "src/assets/rock.png",
+			"path_url": "src/assets/musics/rock/Scott_Holmes_Music-Pop_Rock.mp3"
+		},
+		{
+			"name": "Waterbones",
+			"author": "SuperMash",
+			"image": "src/assets/rock.png",
+			"path_url": "src/assets/musics/rock/SuperMash-Waterbones.mp3"
+		}
+	],
+	"worldwide": [
+		{
+			"name": "Sober Driver",
+			"author": "Dengue Fever",
+			"image": "src/assets/worldwide.png",
+			"path_url": "src/assets/musics/worldwide/Dengue_Fever-Sober_Driver.mp3"
+		},
+		{
+			"name": "Setenafegagn",
+			"author": "Getatchew Mekuria",
+			"image": "src/assets/worldwide.png",
+			"path_url": "src/assets/musics/worldwide/Getatchew_Mekuria-Eywat_Setenafegagn.mp3"
+		},
+		{
+			"name": "Lagunita",
+			"author": "Lulacruza",
+			"image": "src/assets/worldwide.png",
+			"path_url": "src/assets/musics/worldwide/Lulacruza-Lagunita.mp3"
+		},
+		{
+			"name": "Daka Kozi Manowe",
+			"author": "The Sounds of Taraab",
+			"image": "src/assets/worldwide.png",
+			"path_url": "src/assets/musics/worldwide/The_Sounds_of_Taraab-Daka_Kozi_Manowe.mp3"
+		},
+		{
+			"name": "Balkan Qoulou",
+			"author": "Watcha Clan",
+			"image": "src/assets/worldwide.png",
+			"path_url": "src/assets/musics/worldwide/Watcha_Clan-Balkan_Qoulou.mp3"
+		}
+	]
+}
