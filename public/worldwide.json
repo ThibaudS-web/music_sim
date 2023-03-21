@@ -1,32 +1,32 @@
 [
 	{
-		"name": "Sober Driver",
+		"title": "Sober Driver",
 		"author": "Dengue Fever",
-		"image": "src/assets/worldwide.png",
-		"path_url": "src/assets/musics/worldwide/Dengue_Fever-Sober_Driver.mp3"
+		"image": "worldwide.png",
+		"path_url": "worldwide/Dengue_Fever-Sober_Driver.mp3"
 	},
 	{
-		"name": "Setenafegagn",
+		"title": "Setenafegagn",
 		"author": "Getatchew Mekuria",
-		"image": "src/assets/worldwide.png",
-		"path_url": "src/assets/musics/worldwide/Getatchew_Mekuria-Eywat_Setenafegagn.mp3"
+		"image": "worldwide.png",
+		"path_url": "worldwide/Getatchew_Mekuria-Eywat_Setenafegagn.mp3"
 	},
 	{
-		"name": "Lagunita",
+		"title": "Lagunita",
 		"author": "Lulacruza",
-		"image": "src/assets/worldwide.png",
-		"path_url": "src/assets/musics/worldwide/Lulacruza-Lagunita.mp3"
+		"image": "worldwide.png",
+		"path_url": "worldwide/Lulacruza-Lagunita.mp3"
 	},
 	{
-		"name": "Daka Kozi Manowe",
+		"title": "Daka Kozi Manowe",
 		"author": "The Sounds of Taraab",
-		"image": "src/assets/worldwide.png",
-		"path_url": "src/assets/musics/worldwide/The_Sounds_of_Taraab-Daka_Kozi_Manowe.mp3"
+		"image": "worldwide.png",
+		"path_url": "worldwide/The_Sounds_of_Taraab-Daka_Kozi_Manowe.mp3"
 	},
 	{
-		"name": "Balkan Qoulou",
+		"title": "Balkan Qoulou",
 		"author": "Watcha Clan",
-		"image": "src/assets/worldwide.png",
-		"path_url": "src/assets/musics/worldwide/Watcha_Clan-Balkan_Qoulou.mp3"
+		"image": "worldwide.png",
+		"path_url": "worldwide/Watcha_Clan-Balkan_Qoulou.mp3"
 	}
 ]

@@ -1,32 +1,32 @@
 [
 	{
-		"name": "Top and Bottom",
+		"title": "Top and Bottom",
 		"author": "Derek Clegg",
-		"image": "src/assets/country.png",
-		"path_url": "src/assets/musics/country/Derek_Clegg-Top_and_Bottom.mp3"
+		"image": "country.png",
+		"path_url": "country/Derek_Clegg-Top_and_Bottom.mp3"
 	},
 	{
-		"name": "Blind",
+		"title": "Blind",
 		"author": "Derek Clegg",
-		"image": "src/assets/country.png",
-		"path_url": "src/assets/musics/country/Derek_Clegg-Blind.mp3"
+		"image": "country.png",
+		"path_url": "country/Derek_Clegg-Blind.mp3"
 	},
 	{
-		"name": "Engine Jim",
+		"title": "Engine Jim",
 		"author": "HoliznaCC0",
-		"image": "src/assets/country.png",
-		"path_url": "src/assets/musics/country/HoliznaCC0-Engine_Jim.mp3"
+		"image": "country.png",
+		"path_url": "country/HoliznaCC0-Engine_Jim.mp3"
 	},
 	{
-		"name": "John Lopker",
+		"title": "John Lopker",
 		"author": "MAGA Fake Patriots",
-		"image": "src/assets/country.png",
-		"path_url": "src/assets/musics/country/John_Lopker-MAGA_Fake_Patriots.mp3"
+		"image": "country.png",
+		"path_url": "country/John_Lopker-MAGA_Fake_Patriots.mp3"
 	},
 	{
-		"name": "Allways for You",
+		"title": "Allways for You",
 		"author": "Lobo Loco",
-		"image": "src/assets/country.png",
-		"path_url": "src/assets/musics/country/Lobo_Loco-Allways_for_You.mp3"
+		"image": "country.png",
+		"path_url": "country/Lobo_Loco-Allways_for_You.mp3"
 	}
 ]

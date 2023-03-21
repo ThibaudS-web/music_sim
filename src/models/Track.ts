@@ -1,10 +1,10 @@
 class Track {
-	name: string
+	title: string
 	author: string
 	image: string
 	path_url: string
-	constructor(name: string, author: string, image: string, path_url: string) {
-		this.name = name
+	constructor(title: string, author: string, image: string, path_url: string) {
+		this.title = title
 		this.author = author
 		this.image = image
 		this.path_url = path_url

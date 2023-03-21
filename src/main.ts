@@ -1,24 +1,13 @@
 import Genres from "./enums/Genres"
 import FetchingMusic from "./services/FetchingMusic"
-
-const audioplayer = document.querySelector("audio")
-const img = document.querySelector("img")
+import AudioPlayer from "./UI/wrappers/AudioPlayer"
 
 const fetchTracks = new FetchingMusic()
+const playlistContainer = document.querySelector("#container-playlist") as HTMLElement
 
-fetchTracks.getTracksByGenre(Genres.electronic).then((tracks) => {
+fetchTracks.getTracksByGenre(Genres.country).then((tracks) => {
 	console.log(tracks)
-})
-
-const disk = document.querySelector(".disk") as HTMLDivElement
-const hiddenPlayer = document.querySelector(".hidden-player") as HTMLDivElement
-
-hiddenPlayer.addEventListener("click", () => {
-	disk.style.right = "calc(100% - 100px)"
-	hiddenPlayer.style.right = "80%"
-	setTimeout(() => {
-		disk.classList.add("disk-animation-rotation")
-	}, 2000)
+	tracks.map((track) => new AudioPlayer(playlistContainer, track).getHTML())
 })
 
 
