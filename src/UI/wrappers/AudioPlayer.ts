@@ -8,6 +8,8 @@ class AudioPlayer {
 	private playButton: HTMLElement | null
 	private disk: HTMLElement | null
 	private hiddenPlayer: HTMLElement | null
+	private containerProgress: HTMLElement | null
+	private progressBar: HTMLElement | null
 	public wrapper: HTMLDivElement
 	private playTimeout: ReturnType<typeof setTimeout> | null
 	private readonly baseUrlImage: string
@@ -24,6 +26,8 @@ class AudioPlayer {
 		this.disk = null
 		this.playTimeout = null
 		this.hiddenPlayer = null
+		this.containerProgress = null
+		this.progressBar = null
 		this.wrapper = document.createElement("div")
 		this.baseUrlImage = "/src/assets/images-genres"
 		this.baseUrlSong = "/src/assets/musics"
@@ -50,7 +54,9 @@ class AudioPlayer {
                     <h3>
                         ${title} - ${author}
                     </h3>
-                    <div class="container-progress"></div>
+                    <div class="container-progress">
+						<div class="progress-bar"></div>
+					</div>
                     <audio src=${path_url}></audio>
                     <div class="controls">
                         <i class="backward fa-solid fa-backward">
@@ -62,6 +68,7 @@ class AudioPlayer {
                         <i class="forward fa-solid fa-forward">
                         </i>
                     </div>
+					<!-- <p id="timer"></p> -->
                 </div>
             </div>
         `
@@ -77,12 +84,36 @@ class AudioPlayer {
 		this.pauseButton = this.wrapper.querySelector(".pause")!
 		this.hiddenPlayer = this.wrapper.querySelector(".hidden-player")!
 		this.disk = this.wrapper.querySelector(".disk")!
+		this.progressBar = this.wrapper.querySelector(".progress-bar")!
+		this.containerProgress = this.wrapper.querySelector(".container-progress")!
 
 		this.disk.style.backgroundImage = `url(${this.baseUrlImage}/${image}`
 
+		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
+		this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
 		this.hiddenPlayer.addEventListener("click", this.openPlayer.bind(this))
 		this.playButton.addEventListener("click", this.play.bind(this))
 		this.pauseButton.addEventListener("click", this.pause.bind(this))
+	}
+
+	UpdateProgressBar() {
+		if (this.audioElement && this.progressBar) {
+			const progress = (this.audioElement.currentTime / this.audioElement.duration) * 100
+			this.progressBar.style.width = `${progress}%`
+
+			if (progress == 100) this.closePlayer()
+		}
+	}
+
+	setProgressOnClick(e: MouseEvent) {
+		if (this.audioElement) {
+			const width = this.containerProgress?.clientWidth!
+			const clickX = e.offsetX
+			console.log(width)
+			const duration = this.audioElement.duration
+
+			this.audioElement.currentTime = (clickX / width) * duration
+		}
 	}
 
 	openPlayer() {
