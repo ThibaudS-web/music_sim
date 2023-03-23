@@ -3,14 +3,18 @@ import Track from "../../models/Track"
 class AudioPlayer {
 	private readonly track: Track
 	private readonly parentNode: HTMLElement
-	private audioElement: HTMLAudioElement | null
+	audioElement: HTMLAudioElement | null
 	private pauseButton: HTMLElement | null
 	private playButton: HTMLElement | null
 	private disk: HTMLElement | null
 	private hiddenPlayer: HTMLElement | null
 	private containerProgress: HTMLElement | null
-	private progressBar: HTMLElement | null
-	public wrapper: HTMLDivElement
+	progressBar: HTMLElement | null
+	progressValue: number | null
+	public wrapper: HTMLElement
+	forwardBtn: HTMLElement | null
+	backwardBtn: HTMLElement | null
+	isPlaying: boolean
 	private playTimeout: ReturnType<typeof setTimeout> | null
 	private readonly baseUrlImage: string
 	private readonly baseUrlSong: string
@@ -28,6 +32,10 @@ class AudioPlayer {
 		this.hiddenPlayer = null
 		this.containerProgress = null
 		this.progressBar = null
+		this.progressValue = null
+		this.forwardBtn = null
+		this.backwardBtn = null
+		this.isPlaying = false
 		this.wrapper = document.createElement("div")
 		this.baseUrlImage = "/src/assets/images-genres"
 		this.baseUrlSong = "/src/assets/musics"
@@ -86,7 +94,9 @@ class AudioPlayer {
 		this.disk = this.wrapper.querySelector(".disk")!
 		this.progressBar = this.wrapper.querySelector(".progress-bar")!
 		this.containerProgress = this.wrapper.querySelector(".container-progress")!
-
+		this.forwardBtn = this.wrapper.querySelector(".forward")
+		this.backwardBtn = this.wrapper.querySelector(".backward")
+		
 		this.disk.style.backgroundImage = `url(${this.baseUrlImage}/${image}`
 
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
@@ -98,10 +108,11 @@ class AudioPlayer {
 
 	UpdateProgressBar() {
 		if (this.audioElement && this.progressBar) {
-			const progress = (this.audioElement.currentTime / this.audioElement.duration) * 100
-			this.progressBar.style.width = `${progress}%`
-
-			if (progress == 100) this.closePlayer()
+			this.progressValue = Math.ceil(
+				(this.audioElement.currentTime / this.audioElement.duration) * 100
+			)
+			this.progressBar.style.width = `${this.progressValue}%`
+			if (this.progressValue === 100) this.closePlayer()
 		}
 	}
 
@@ -109,9 +120,7 @@ class AudioPlayer {
 		if (this.audioElement) {
 			const width = this.containerProgress?.clientWidth!
 			const clickX = e.offsetX
-			console.log(width)
 			const duration = this.audioElement.duration
-
 			this.audioElement.currentTime = (clickX / width) * duration
 		}
 	}
@@ -119,6 +128,7 @@ class AudioPlayer {
 	openPlayer() {
 		this.disk?.classList.add("disk-left-moving")
 		this.hiddenPlayer?.classList.add("hidden-left-moving")
+		this.isPlaying = true
 
 		this.playTimeout = setTimeout(() => {
 			this.play()
@@ -144,6 +154,7 @@ class AudioPlayer {
 	}
 
 	pause() {
+		this.isPlaying = false
 		this.audioElement?.pause()
 		this.diskCloseAnimation()
 		this.playButton?.classList.add("d-block")
