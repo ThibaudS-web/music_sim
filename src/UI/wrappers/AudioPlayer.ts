@@ -59,9 +59,12 @@ class AudioPlayer {
                     </div>
                 </div>
                 <div class="player">
-                    <h3>
-                        ${title} - ${author}
-                    </h3>
+					<div class="player-header">
+						<h4>
+							${title} - ${author}
+						</h4>
+						<p class='timer'>00:43 / 03:18</p>
+					</div>
                     <div class="container-progress">
 						<div class="progress-bar"></div>
 					</div>
@@ -76,7 +79,6 @@ class AudioPlayer {
                         <i class="forward fa-solid fa-forward">
                         </i>
                     </div>
-					<!-- <p id="timer"></p> -->
                 </div>
             </div>
         `
@@ -96,7 +98,7 @@ class AudioPlayer {
 		this.containerProgress = this.wrapper.querySelector(".container-progress")!
 		this.forwardBtn = this.wrapper.querySelector(".forward")
 		this.backwardBtn = this.wrapper.querySelector(".backward")
-		
+
 		this.disk.style.backgroundImage = `url(${this.baseUrlImage}/${image}`
 
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
@@ -145,6 +147,7 @@ class AudioPlayer {
 	}
 
 	play() {
+		this.isPlaying = true
 		this.audioElement?.play()
 		this.diskOpenAnimation()
 		this.playButton?.classList.add("d-none")
@@ -154,7 +157,6 @@ class AudioPlayer {
 	}
 
 	pause() {
-		this.isPlaying = false
 		this.audioElement?.pause()
 		this.diskCloseAnimation()
 		this.playButton?.classList.add("d-block")
@@ -164,6 +166,7 @@ class AudioPlayer {
 	}
 
 	resetTrack() {
+		this.isPlaying = false
 		this.pause()
 		if (this.audioElement) {
 			this.audioElement.currentTime = 0
