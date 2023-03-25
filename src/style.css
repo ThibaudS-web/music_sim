@@ -166,6 +166,7 @@ section > h2 {
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	align-self: baseline;
 }
 
 .player-header > h4 {
@@ -173,12 +174,19 @@ section > h2 {
 	margin-right: 1em;
 }
 
-.player-header > .timer {
-	align-self: flex-end;
+.timer-container {
+	display: flex;
+}
+
+.timer-container > p {
 	color: rgb(0, 219, 249);
 	text-shadow: 0px 0px 160px rgba(0, 219, 249, 0.25), 0px 0px 10px rgba(0, 219, 249, 0.25),
 		0px 0px 20px rgba(0, 219, 249, 0.25), 0px 0px 40px rgba(0, 219, 249, 0.25),
 		0px 0px 80px rgba(0, 219, 249, 0.25);
+}
+
+.timer-separator {
+	margin: 0 0.3em;
 }
 
 .container-progress {
