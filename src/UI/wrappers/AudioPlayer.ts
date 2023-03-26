@@ -1,7 +1,8 @@
 import Track from "../../models/Track"
-
+import { v4 as uuidv4 } from "uuid"
 class AudioPlayer {
 	private readonly track: Track
+	public readonly id = uuidv4()
 	private readonly parentNode: HTMLElement
 	audioElement: HTMLAudioElement | null
 	private pauseButton: HTMLElement | null
@@ -137,10 +138,10 @@ class AudioPlayer {
 
 	setProgressOnClick(e: MouseEvent) {
 		if (this.audioElement) {
+			let { duration } = this.audioElement
 			const width = this.containerProgress?.clientWidth!
 			const clickX = e.offsetX
-			const duration = this.audioElement.duration
-			this.audioElement.currentTime = (clickX / width) * duration
+			this.audioElement.currentTime = Math.ceil((clickX / width) * duration)
 
 			if (this.intervalId) clearInterval(this.intervalId)
 			this.incrementDurationCount(this.audioElement.currentTime)
@@ -206,7 +207,7 @@ class AudioPlayer {
 		}
 
 		const incrementTime = () => {
-			secondes++
+			if (this.isPlaying) secondes++
 
 			if (secondes > 59) {
 				secondes = 0
@@ -250,8 +251,9 @@ class AudioPlayer {
 
 	pauseSong() {
 		this.isPlaying = false
-
+		console.log("pauseSong: ", this.audioElement?.currentTime)
 		this.audioElement?.pause()
+
 		if (this.intervalId) clearInterval(this.intervalId) //TODO: bug on pause need to be fixed
 		this.diskCloseAnimation()
 		this.playButton?.classList.add("d-block")

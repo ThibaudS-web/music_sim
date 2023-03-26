@@ -38,20 +38,21 @@ function closeOtherAudioPlayers(songs: AudioPlayer[]) {
 
 		song.forwardBtn?.addEventListener("click", (event) => {
 			event.stopPropagation()
-			goToNextSong(songs, true)
+			goToNextSong(songs, song.id)
 		})
 
 		song.backwardBtn?.addEventListener("click", (event) => {
 			event.stopPropagation()
-			goToPreviousSong(songs)
+			goToPreviousSong(songs, song.id)
 		})
 	})
 }
 
-function goToNextSong(songs: AudioPlayer[], triggeredByClick?: boolean) {
+function goToNextSong(songs: AudioPlayer[], currentSongId?: string) {
 	const getNextIndex = (currentIndex: number) => (currentIndex + 1) % songs.length
-	if (triggeredByClick) {
-		const currentIndex = songs.findIndex((song) => song.isPlaying)
+	if (currentSongId) {
+		const currentIndex = songs.findIndex((song) => song.id === currentSongId)
+		console.log("currentIndex", currentIndex)
 		songs[currentIndex].closePlayer()
 		songs[getNextIndex(currentIndex)].openPlayer()
 	} else {
@@ -66,7 +67,7 @@ function goToNextSong(songs: AudioPlayer[], triggeredByClick?: boolean) {
 	}
 }
 
-function goToPreviousSong(songs: AudioPlayer[]) {
+function goToPreviousSong(songs: AudioPlayer[], currentSongId: string) {
 	const getPreviousIndex = (currentIndex: number) => {
 		if (currentIndex === 0) {
 			return songs.length - 1
@@ -74,7 +75,7 @@ function goToPreviousSong(songs: AudioPlayer[]) {
 			return currentIndex - 1
 		}
 	}
-	const currentIndex = songs.findIndex((song) => song.isPlaying)
+	const currentIndex = songs.findIndex((song) => song.id === currentSongId)
 	songs[currentIndex].closePlayer()
 	songs[getPreviousIndex(currentIndex)].openPlayer()
 }
