@@ -124,6 +124,10 @@ class AudioPlayer {
 		this.pauseButton.addEventListener("click", this.pauseSong.bind(this))
 	}
 
+	deleteAllEventListeners() {
+		this.containerProgress?.removeEventListener("click", (e) => this.setProgressOnClick(e))
+	}
+
 	UpdateProgressBar() {
 		if (this.audioElement && this.progressBar) {
 			this.progressValue = Math.floor(
@@ -131,7 +135,7 @@ class AudioPlayer {
 			)
 
 			this.progressBar.style.width = `${this.progressValue}%`
-
+			console.log(this.progressValue)
 			if (this.progressValue === 100) this.closePlayer()
 		}
 	}
@@ -165,6 +169,7 @@ class AudioPlayer {
 	}
 
 	closePlayer() {
+		this.deleteAllEventListeners() // TODO: remove listeners when players closed
 		this.disk?.classList.remove("disk-left-moving")
 		this.hiddenPlayer?.classList.remove("hidden-left-moving")
 		if (this.playTimeout !== null) clearTimeout(this.playTimeout)
@@ -187,24 +192,19 @@ class AudioPlayer {
 
 	incrementDurationCount(currentDurationInSecond?: number) {
 		let songTime = this.formatDuration()
-		let minutesSong = parseInt(songTime.split(":")[0])
-		let secondsSong = parseInt(songTime.split(":")[1])
+		let [minutesSong, secondsSong] = songTime.split(":").map((x) => parseInt(x))
+		let minutes = currentDurationInSecond ? Math.floor(currentDurationInSecond / 60) : 0
+		let secondes = currentDurationInSecond ? Math.floor(currentDurationInSecond % 60) : 0
 
-		// set the initial time at 00:00
-		let minutes = 0
-		let secondes = 0
-
-		//set the time if user click on progressBar
-		if (currentDurationInSecond) {
-			secondes = Math.floor(currentDurationInSecond % 60)
-			minutes = Math.floor(currentDurationInSecond / 60)
+		const setFormattedTime = () => {
+			if (this.currentTimeSong) {
+				this.currentTimeSong.innerHTML = `${minutes.toString().padStart(2, "0")}:${secondes
+					.toString()
+					.padStart(2, "0")}&nbsp;`
+			}
 		}
 
-		if (this.currentTimeSong) {
-			this.currentTimeSong.innerHTML = `${minutes.toString().padStart(2, "0")}:${secondes
-				.toString()
-				.padStart(2, "0")}&nbsp;`
-		}
+		setFormattedTime()
 
 		const incrementTime = () => {
 			if (this.isPlaying) secondes++
@@ -214,23 +214,14 @@ class AudioPlayer {
 				minutes++
 			}
 
-			//if the time reach the final time song, stop the interval timing
 			if (minutes === minutesSong && secondes === secondsSong && this.intervalId) {
 				clearInterval(this.intervalId)
 			}
 
-			if (this.currentTimeSong) {
-				this.currentTimeSong.innerHTML = `${minutes.toString().padStart(2, "0")}:${secondes
-					.toString()
-					.padStart(2, "0")}&nbsp;`
-			}
+			setFormattedTime()
 		}
 
-		if (this.isPlaying) {
-			this.intervalId = setInterval(incrementTime, 1000)
-		} else {
-			incrementTime()
-		}
+		this.isPlaying ? (this.intervalId = setInterval(incrementTime, 1000)) : incrementTime()
 	}
 
 	playSong() {
