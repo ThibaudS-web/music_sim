@@ -4,29 +4,39 @@ class AudioPlayer {
 	private readonly track: Track
 	public readonly id = uuidv4()
 	private readonly parentNode: HTMLElement
-	audioElement: HTMLAudioElement | null
+	public audioElement: HTMLAudioElement | null
 	private pauseButton: HTMLElement | null
 	private playButton: HTMLElement | null
 	private disk: HTMLElement | null
 	private hiddenPlayer: HTMLElement | null
 	private containerProgress: HTMLElement | null
-	progressBar: HTMLElement | null
-	progressValue: number | null
+	private progressBar: HTMLElement | null
+	public progressValue: number | null
 	public wrapper: HTMLElement
-	forwardBtn: HTMLElement | null
-	backwardBtn: HTMLElement | null
-	durationTimeSong: HTMLElement | null
-	currentTimeSong: HTMLElement | null
-	isPlaying: boolean
+	public forwardBtn: HTMLElement | null
+	public backwardBtn: HTMLElement | null
+	private durationTimeSong: HTMLElement | null
+	private currentTimeSong: HTMLElement | null
+	private isPlaying: boolean
 	private playTimeout: ReturnType<typeof setTimeout> | null
 	private readonly baseUrlImage: string
 	private readonly baseUrlSong: string
-	secondsCount = 0
-	minutesCount = 0
-	intervalId: NodeJS.Timer | null
-	title: null | string
-	diskOpenAnimation = () => this.disk?.classList.add("disk-animation-rotation")
-	diskCloseAnimation = () => this.disk?.classList.remove("disk-animation-rotation")
+	private intervalId: NodeJS.Timer | null
+	private readonly diskOpenAnimation = () => this.disk?.classList.add("disk-animation-rotation")
+	private readonly diskCloseAnimation = () =>
+		this.disk?.classList.remove("disk-animation-rotation")
+	private readonly displayPlayButton = () => {
+		this.playButton?.classList.add("d-block")
+		this.playButton?.classList.remove("d-none")
+		this.pauseButton?.classList.remove("d-block")
+		this.pauseButton?.classList.add("d-none")
+	}
+	private readonly displayPauseButton = () => {
+		this.playButton?.classList.add("d-none")
+		this.playButton?.classList.remove("d-block")
+		this.pauseButton?.classList.remove("d-none")
+		this.pauseButton?.classList.add("d-block")
+	}
 
 	constructor(parentNode: HTMLElement, track: Track) {
 		this.parentNode = parentNode
@@ -42,7 +52,6 @@ class AudioPlayer {
 		this.progressValue = null
 		this.forwardBtn = null
 		this.backwardBtn = null
-		this.title = null
 		this.durationTimeSong = null
 		this.currentTimeSong = null
 		this.intervalId = null
@@ -116,7 +125,7 @@ class AudioPlayer {
 
 		this.audioElement.src = `${this.baseUrlSong}/${path_url}`
 		this.disk.style.backgroundImage = `url(${this.baseUrlImage}/${image}`
-		this.title = title //need to be deleted after dev
+
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
 		this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
 		this.hiddenPlayer.addEventListener("click", this.openPlayer.bind(this))
@@ -133,9 +142,7 @@ class AudioPlayer {
 			this.progressValue = Math.floor(
 				(this.audioElement.currentTime / this.audioElement.duration) * 100
 			)
-
 			this.progressBar.style.width = `${this.progressValue}%`
-			console.log(this.progressValue)
 			if (this.progressValue === 100) this.closePlayer()
 		}
 	}
@@ -234,23 +241,15 @@ class AudioPlayer {
 		}
 
 		this.diskOpenAnimation()
-		this.playButton?.classList.add("d-none")
-		this.playButton?.classList.remove("d-block")
-		this.pauseButton?.classList.remove("d-none")
-		this.pauseButton?.classList.add("d-block")
+		this.displayPauseButton()
 	}
 
 	pauseSong() {
 		this.isPlaying = false
-		console.log("pauseSong: ", this.audioElement?.currentTime)
 		this.audioElement?.pause()
-
-		if (this.intervalId) clearInterval(this.intervalId) //TODO: bug on pause need to be fixed
+		if (this.intervalId) clearInterval(this.intervalId)
 		this.diskCloseAnimation()
-		this.playButton?.classList.add("d-block")
-		this.playButton?.classList.remove("d-none")
-		this.pauseButton?.classList.remove("d-block")
-		this.pauseButton?.classList.add("d-none")
+		this.displayPlayButton()
 	}
 
 	resetTrack() {
