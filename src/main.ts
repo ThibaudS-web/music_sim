@@ -1,9 +1,25 @@
 import Genres from "./enums/Genres"
 import FetchingMusic from "./services/FetchingMusic"
 import AudioPlayer from "./UI/wrappers/AudioPlayer"
+import { switchMusicByGenre } from "./utils"
 
+const searchInput = document.querySelector("#search") as HTMLInputElement
 const fetchTracks = new FetchingMusic()
 const playlistContainer = document.querySelector("#container-playlist") as HTMLElement
+const genres: NodeListOf<HTMLElement> = document.querySelectorAll(".image-genre")
+
+searchInput?.addEventListener("focus", () => {
+	searchInput.value =
+		"The search bar is currently unavailable, no API is available for this demo."
+})
+
+searchInput?.addEventListener("blur", () => {
+	searchInput.value = ""
+})
+
+genres.forEach((genre) =>
+	genre.addEventListener("click", () => switchPlayList(switchMusicByGenre(genre)))
+)
 
 let audioPlayers: AudioPlayer[] = []
 
@@ -80,14 +96,15 @@ function goToPreviousSong(songs: AudioPlayer[], currentSongId: string) {
 	songs[getPreviousIndex(currentIndex)].openPlayer()
 }
 
-// function removePlaylist() {
-// 	playlistContainer.innerHTML = ""
-// }
+function removePlaylist() {
+	playlistContainer.innerHTML = ""
+}
 
-function switchPlayList(genre: Genres) {
-	// removePlaylist()
+function switchPlayList(genre: Genres | null) {
+	if (genre === null) return
+	removePlaylist()
 	displayPlaylist(genre)
 }
 
-switchPlayList(Genres.rock)
+switchPlayList(Genres.worldwide)
 

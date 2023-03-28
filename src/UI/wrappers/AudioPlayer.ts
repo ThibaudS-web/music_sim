@@ -13,6 +13,8 @@ class AudioPlayer {
 	private progressBar: HTMLElement | null
 	public progressValue: number | null
 	public wrapper: HTMLElement
+	titleSong: HTMLElement | null
+	containerSong: HTMLElement | null
 	public forwardBtn: HTMLElement | null
 	public backwardBtn: HTMLElement | null
 	private durationTimeSong: HTMLElement | null
@@ -37,6 +39,13 @@ class AudioPlayer {
 		this.pauseButton?.classList.remove("d-none")
 		this.pauseButton?.classList.add("d-block")
 	}
+	private readonly scrollTitle = () => {
+		if (this.titleSong!.offsetWidth > this.containerSong!.offsetWidth && this.isPlaying) {
+			this.titleSong?.classList.add("scroll-animation")
+		} else {
+			this.titleSong?.classList.remove("scroll-animation")
+		}
+	}
 
 	constructor(parentNode: HTMLElement, track: Track) {
 		this.parentNode = parentNode
@@ -50,6 +59,8 @@ class AudioPlayer {
 		this.containerProgress = null
 		this.progressBar = null
 		this.progressValue = null
+		this.titleSong = null
+		this.containerSong = null
 		this.forwardBtn = null
 		this.backwardBtn = null
 		this.durationTimeSong = null
@@ -80,13 +91,14 @@ class AudioPlayer {
                 </div>
                 <div class="player">
 					<div class="player-header">
-						<h4>
-							${title} - ${author}
-						</h4>
+						<div class="title-container">
+							<h4 class="title-song">
+								${title} - ${author}
+							</h4>
+						</div>
 						<div class='timer-container'>
-						<p class="timer-current-song"></p>
-						
-						<p class="timer-duration-song"></p>
+							<p class="timer-current-song"></p>
+							<p class="timer-duration-song"></p>
 						</div>
 					</div>
                     <div class="container-progress">
@@ -122,6 +134,8 @@ class AudioPlayer {
 		this.backwardBtn = this.wrapper.querySelector(".backward")
 		this.durationTimeSong = this.wrapper.querySelector(".timer-duration-song")!
 		this.currentTimeSong = this.wrapper.querySelector(".timer-current-song")
+		this.titleSong = this.wrapper.querySelector("h4")!
+		this.containerSong = this.wrapper.querySelector(".title-container")!
 
 		this.audioElement.src = `${this.baseUrlSong}/${path_url}`
 		this.disk.style.backgroundImage = `url(${this.baseUrlImage}/${image}`
@@ -133,15 +147,12 @@ class AudioPlayer {
 		this.pauseButton.addEventListener("click", this.pauseSong.bind(this))
 	}
 
-	deleteAllEventListeners() {
-		this.containerProgress?.removeEventListener("click", (e) => this.setProgressOnClick(e))
-	}
-
 	UpdateProgressBar() {
 		if (this.audioElement && this.progressBar) {
 			this.progressValue = Math.floor(
 				(this.audioElement.currentTime / this.audioElement.duration) * 100
 			)
+
 			this.progressBar.style.width = `${this.progressValue}%`
 			if (this.progressValue === 100) this.closePlayer()
 		}
@@ -172,11 +183,11 @@ class AudioPlayer {
 				this.durationTimeSong.innerHTML = ` / ${this.formatDuration()}`
 				this.currentTimeSong.innerHTML = "00:00&nbsp;"
 			}
+			this.scrollTitle()
 		}, 1200)
 	}
 
 	closePlayer() {
-		this.deleteAllEventListeners() // TODO: remove listeners when players closed
 		this.disk?.classList.remove("disk-left-moving")
 		this.hiddenPlayer?.classList.remove("hidden-left-moving")
 		if (this.playTimeout !== null) clearTimeout(this.playTimeout)
@@ -254,7 +265,7 @@ class AudioPlayer {
 
 	resetTrack() {
 		this.isPlaying = false
-
+		this.scrollTitle()
 		if (this.intervalId) clearInterval(this.intervalId)
 		this.pauseSong()
 		if (this.durationTimeSong) this.durationTimeSong.innerHTML = ""
