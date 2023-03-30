@@ -1,11 +1,14 @@
 import Genres from "./enums/Genres"
 import FetchingMusic from "./services/FetchingMusic"
 import AudioPlayer from "./UI/wrappers/AudioPlayer"
+import Slider from "./UI/wrappers/Slider"
+import SliderElement from "./UI/wrappers/SliderElement"
 import { switchMusicByGenre } from "./utils"
 
 const searchInput = document.querySelector("#search") as HTMLInputElement
 const fetchTracks = new FetchingMusic()
 const playlistContainer = document.querySelector("#container-playlist") as HTMLElement
+const genreContainer = document.querySelector("#container-genre") as HTMLElement
 const genres: NodeListOf<HTMLElement> = document.querySelectorAll(".image-genre")
 
 searchInput?.addEventListener("focus", () => {
@@ -22,6 +25,17 @@ genres.forEach((genre) =>
 )
 
 let audioPlayers: AudioPlayer[] = []
+
+function displayGenrelist() {
+	let sliderElements: SliderElement[] = []
+
+	for (let genre in Genres) {
+		sliderElements.push(new SliderElement(genre))
+	}
+	new Slider(sliderElements, genreContainer).getHTML()
+}
+
+displayGenrelist()
 
 function displayPlaylist(genre: Genres) {
 	fetchTracks
