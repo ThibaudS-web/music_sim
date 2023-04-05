@@ -298,6 +298,7 @@ section > h2 {
 	display: flex;
 	gap: 2rem;
 	align-items: center;
+	margin-bottom: 1rem;
 }
 
 .active-genre {

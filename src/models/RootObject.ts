@@ -20,5 +20,4 @@ class RootObject {
 		this.worldwide = worldwide
 	}
 }
-
 export default RootObject

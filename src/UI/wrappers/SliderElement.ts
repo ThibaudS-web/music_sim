@@ -4,6 +4,19 @@ class SliderElement {
 	active: boolean
 	wrapperElement: HTMLElement
 	image: HTMLImageElement | null
+	callbackOnMoving: (() => void) | null = null;
+
+	setClickOnSlideElementForMovingOnSlider(cb: () => void) {
+		if (this.callbackOnMoving !== null) {
+			this.wrapperElement.removeEventListener("click", this.callbackOnMoving);
+		}
+		this.callbackOnMoving = cb;
+		this.wrapperElement.addEventListener("click", cb);
+	}
+
+	setClickOnSliderElementForGeneratePlayList(callback: () => void) {
+		callback()
+	}
 
 	constructor(genre: string) {
 		this.genre = genre
@@ -14,8 +27,7 @@ class SliderElement {
 
 	getHTML() {
 		const element = `
-         
-                 <img
+                <img
                     data-genre="${this.genre}"
                     class="image-genre"
                     src="${this.base_URL}/${this.genre}.png"
@@ -31,7 +43,6 @@ class SliderElement {
 	}
 
 	sizeChange() {
-		console.log(this.active)
 		if (this.active) {
 			this.wrapperElement.classList.add("active-genre")
 		} else {

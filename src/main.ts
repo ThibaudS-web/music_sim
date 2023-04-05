@@ -20,24 +20,38 @@ searchInput?.addEventListener("blur", () => {
 	searchInput.value = ""
 })
 
-genres.forEach((genre) =>
+genres.forEach((genre) => {
+	console.log(genre)
 	genre.addEventListener("click", () => switchPlayList(switchMusicByGenre(genre)))
-)
+})
+
+
 
 let audioPlayers: AudioPlayer[] = []
+let sliderElements: SliderElement[] = []
 
 function displayGenrelist() {
-	let sliderElements: SliderElement[] = []
-
 	for (let genre in Genres) {
 		sliderElements.push(new SliderElement(genre))
 	}
-	new Slider(sliderElements, genreContainer).getHTML()
+	const slider = new Slider(sliderElements, genreContainer)
+
+	slider.getHTML()
+
+	slider.elements.forEach(sliderElement => sliderElement.setClickOnSliderElementForGeneratePlayList(() => sliderElement.wrapperElement.addEventListener('click', () => {
+		switchPlayList(sliderElement.genre)
+	})))
+
+	const genreHTMLElement = slider.wrapper.querySelector('.active-genre > img') as HTMLImageElement
+	const genreSelected = genreHTMLElement.dataset.genre as string
+
+	switchPlayList(genreSelected)
 }
 
 displayGenrelist()
 
-function displayPlaylist(genre: Genres) {
+function displayPlaylist(genre: string) {
+
 	fetchTracks
 		.getTracksByGenre(genre)
 		.then((tracks) => {
@@ -114,11 +128,10 @@ function removePlaylist() {
 	playlistContainer.innerHTML = ""
 }
 
-function switchPlayList(genre: Genres | null) {
+function switchPlayList(genre: Genres | null | string) {
 	if (genre === null) return
 	removePlaylist()
 	displayPlaylist(genre)
 }
 
-switchPlayList(Genres.worldwide)
 
