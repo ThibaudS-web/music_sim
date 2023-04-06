@@ -1,0 +1,119 @@
+@import url('./global.css');
+
+h2 {
+    font-weight: 500;
+    text-align: center;
+    margin: 4rem 0;
+}
+
+#container {
+    height: 800px;
+    overflow-y: scroll;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.genre-disk {
+    width: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid var(--secondary);
+    background-size: contain;
+    background-position: center;
+    animation: turnDisk 2.5s linear infinite;
+}
+
+.genre-disk-center {
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--secondary);
+    border-radius: 50%;
+    background-color: var(--secondary);
+    box-shadow: inset 3px 3px 2px rgba(0, 0, 0, 0.25), inset -3px -3px 3px rgba(0, 0, 0, 0.25);
+}
+
+section {
+    display: flex;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.genre-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.genre-wrapper {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    box-shadow: inset -10px -10px 5px #171b23, inset 10px 10px 5px #13171d;
+    justify-content: center;
+    padding: 2rem 3rem;
+    gap: 1.5rem;
+}
+
+.artist-infos>a {
+    text-decoration: underline;
+}
+
+section:last-child {
+    margin: 0;
+}
+
+.artist-infos {
+    border-radius: 2rem;
+    /* border: 2px var(--tertiary) solid; */
+    padding: 1rem;
+    line-height: 1.5rem;
+
+    background: linear-gradient(145deg, #161b22, #13171d);
+    box-shadow: 8px 8px 16px #11151b,
+        -8px -8px 16px #191d25;
+}
+
+/*===================  Scrollbar  ===================*/
+
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 2rem;
+
+}
+
+::-webkit-scrollbar-track {
+    width: 10px;
+    border-radius: 2rem;
+}
+
+::-webkit-scrollbar-thumb {
+    width: 10px;
+    border-radius: 2rem;
+    background-color: var(--tertiary);
+}
+
+/*===================  MediaQ  ===================*/
+
+@media screen and (max-width: 768px) {
+    section {
+        flex-direction: column;
+    }
+
+    .genre-wrapper {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .genre-wrapper {
+        padding: 2rem 1.2rem;
+    }
+
+    h2 {
+        font-size: 1.3rem;
+    }
+}

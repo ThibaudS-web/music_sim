@@ -1,0 +1,32 @@
+[
+	{
+		"title": "Morning Dew",
+		"author": "1st Contact",
+		"image": "rock.png",
+		"path_url": "rock/1st_Contact-Morning_Dew.mp3"
+	},
+	{
+		"title": "Post Mortem",
+		"author": "Kris Keypovsk",
+		"image": "rock.png",
+		"path_url": "rock/Kris_Keypovsky-Post_Mortem.mp3"
+	},
+	{
+		"title": "She Haunts Me",
+		"author": "Mr Smith",
+		"image": "rock.png",
+		"path_url": "rock/Mr_Smith-She_Haunts_Me.mp3"
+	},
+	{
+		"title": "Pop Rock",
+		"author": "Scott Holmes Music",
+		"image": "rock.png",
+		"path_url": "rock/Scott_Holmes_Music-Pop_Rock.mp3"
+	},
+	{
+		"title": "Waterbones",
+		"author": "SuperMash",
+		"image": "rock.png",
+		"path_url": "rock/SuperMash-Waterbones.mp3"
+	}
+]
