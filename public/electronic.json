@@ -2,31 +2,31 @@
 	{
 		"title": "Little Movie",
 		"author": "Eric Salazar",
-		"image": "electronic.png",
+		"image": "electronic.webp",
 		"path_url": "electronic/Eric_Salazar-Little_Movie.mp3"
 	},
 	{
 		"title": "Greenish Blue",
 		"author": "Golden Grey",
-		"image": "electronic.png",
+		"image": "electronic.webp",
 		"path_url": "electronic/Golden_Grey-Greenish_Blue.mp3"
 	},
 	{
 		"title": "Magenta Moon",
 		"author": "Line Noise",
-		"image": "electronic.png",
+		"image": "electronic.webp",
 		"path_url": "electronic/Line_Noise-Magenta_Moon.mp3"
 	},
 	{
 		"title": "Eve",
 		"author": "Mindthings",
-		"image": "electronic.png",
+		"image": "electronic.webp",
 		"path_url": "electronic/mindthings-Eve.mp3"
 	},
 	{
 		"title": "Psyche",
 		"author": "Wolf Asylum",
-		"image": "electronic.png",
+		"image": "electronic.webp",
 		"path_url": "electronic/Wolf_Asylum-Psyche.mp3"
 	}
 ]

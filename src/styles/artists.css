@@ -68,10 +68,8 @@ section:last-child {
 
 .artist-infos {
     border-radius: 2rem;
-    /* border: 2px var(--tertiary) solid; */
     padding: 1rem;
     line-height: 1.5rem;
-
     background: linear-gradient(145deg, #161b22, #13171d);
     box-shadow: 8px 8px 16px #11151b,
         -8px -8px 16px #191d25;

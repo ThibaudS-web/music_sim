@@ -94,9 +94,9 @@ class AudioPlayer {
                 <div class="player">
 					<div class="player-header">
 						<div class="title-container">
-							<h4 class="title-song">
+							<p class="title-song">
 								${title} - ${author}
-							</h4>
+							</p>
 						</div>
 						<div class='timer-container'>
 							<p class="timer-current-song"></p>
@@ -136,7 +136,7 @@ class AudioPlayer {
 		this.backwardBtn = this.wrapper.querySelector(".backward")
 		this.durationTimeSong = this.wrapper.querySelector(".timer-duration-song")!
 		this.currentTimeSong = this.wrapper.querySelector(".timer-current-song")
-		this.titleSong = this.wrapper.querySelector("h4")!
+		this.titleSong = this.wrapper.querySelector(".title-song")!
 		this.containerSong = this.wrapper.querySelector(".title-container")!
 
 		this.audioElement.src = `${this.baseUrlSong}/${path_url}`

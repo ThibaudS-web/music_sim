@@ -32,7 +32,7 @@ class SliderElement {
                 <img
                     data-genre="${this.genre}"
                     class="image-genre"
-                    src="${this.base_URL}/${this.genre}.png"
+                    src="${this.base_URL}/${this.genre}.webp"
                     alt="${this.genre} image"
                 />
                 <p>${this.genre}</p>
