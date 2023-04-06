@@ -1,5 +1,7 @@
 import Track from "../../models/Track"
 import { v4 as uuidv4 } from "uuid"
+
+/** @description The AudioPlayer class seems to provide a comprehensive implementation for playing audio files on a webpage. It includes a variety of UI elements such as play/pause buttons, progress bars, and song information. The constructor initializes all necessary properties and the getHTML() method generates the necessary HTML and attaches it to the DOM. The class also includes a number of private methods for managing UI updates and animations, as well as event handlers for user interaction with the player. Overall, this seems like a well-designed and functional class for playing audio on a webpage. */
 class AudioPlayer {
 	private readonly track: Track
 	public readonly id = uuidv4()
@@ -13,8 +15,8 @@ class AudioPlayer {
 	private progressBar: HTMLElement | null
 	public progressValue: number | null
 	public wrapper: HTMLElement
-	titleSong: HTMLElement | null
-	containerSong: HTMLElement | null
+	private titleSong: HTMLElement | null
+	private containerSong: HTMLElement | null
 	public forwardBtn: HTMLElement | null
 	public backwardBtn: HTMLElement | null
 	private durationTimeSong: HTMLElement | null

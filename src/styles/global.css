@@ -1,0 +1,41 @@
+:root {
+    --primary: #151920;
+    --secondary: #2d2d2f;
+    --tertiary: #e3dcdc;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Imprima", sans-serif;
+    color: var(--tertiary);
+}
+
+body {
+    background-color: var(--primary);
+}
+
+a {
+    text-decoration: none;
+}
+
+#bloc-page {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+h1 {
+    color: var(--tertiary);
+    letter-spacing: 0.3rem;
+    text-align: center;
+}
+
+@keyframes turnDisk {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

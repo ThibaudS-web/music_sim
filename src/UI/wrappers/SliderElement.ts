@@ -1,3 +1,5 @@
+/** @description This class represents an individual element in a Slider. Each SliderElement instance has a genre property, a base_URL property for the image source, an active property to indicate if it's the current active element, a wrapperElement property for the HTML element, an image property for the image element, and two methods for setting callbacks when clicked. The getHTML method creates and returns the HTML structure of the element with the genre name and image. The sizeChange method is called to update the class of the wrapperElement when the element is set to active or not. */
+
 class SliderElement {
 	genre: string
 	base_URL = "src/assets/images-genres"

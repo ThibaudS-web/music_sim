@@ -1,52 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-		<link rel="shortcut icon" href="src/assets/favicon_32.png" type="image/png" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-			integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<link href="https://fonts.cdnfonts.com/css/imprima" rel="stylesheet" />
-		<link rel="stylesheet" type="text/css" href="src/style.css" />
-		<link
-			rel="stylesheet"
-			href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-			integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
-			crossorigin="anonymous"
-			referrerpolicy="no-referrer"
-		/>
-		<script type="module" src="/src/main.ts" defer></script>
-		<title>Jazzam</title>
-	</head>
-	<body>
-		<div id="bloc-page">
-			<header>
-				<h1>Jazzam</h1>
-				<label for="search"></label>
-				<input type="text" id="search" placeholder="Search for artists, groups" />
-			</header>
-			<main>
-				<div id="container-page">
-					<section class="section-wrapper">
-						<h2>Enjoy the playlist</h2>
-						<div id="container-playlist"></div>
-						<a id="about" href="./about.html">
-							License creative commons (CC BY-NC-SA 4.0) - About artists
-						</a>
-					</section>
-					<section class="section-wrapper">
-						<h2>Select a musical style</h2>
-						<div id="container-genre"></div>
-					</section>
-				</div>
-			</main>
-		</div>
-	</body>
-</html>
 
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	<link rel="shortcut icon" href="src/assets/favicon_32.png" type="image/png" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+		integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<link href="https://fonts.cdnfonts.com/css/imprima" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="src/styles/landing.css" />
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+		integrity="sha512-NhSC1YmyruXifcj/KFRWoC561YpHpc5Jtzgvbuzx5VozKpWvQ+4nXhPdFgmx8xqexRcpAglTj9sIBWINXa8x5w=="
+		crossorigin="anonymous" referrerpolicy="no-referrer" />
+	<script type="module" src="/src/main.ts" defer></script>
+	<title>Jazzam</title>
+</head>
+
+<body>
+	<div id="bloc-page">
+		<header>
+			<a href="index.html">
+				<h1>Jazzam</h1>
+			</a>
+			<label for="search"></label>
+			<input type="text" id="search" placeholder="Search for artists, groups" />
+		</header>
+		<main>
+			<div id="container-page">
+				<section class="section-wrapper">
+					<h2>Enjoy the playlist</h2>
+					<div id="container-playlist"></div>
+					<a id="about" href="./about.html">
+						License creative commons (CC BY-NC-SA 4.0) - About artists
+					</a>
+				</section>
+				<section class="section-wrapper">
+					<h2>Select a musical style</h2>
+					<div id="container-genre"></div>
+				</section>
+			</div>
+		</main>
+	</div>
+</body>
+
+</html>

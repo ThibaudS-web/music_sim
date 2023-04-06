@@ -21,15 +21,13 @@ searchInput?.addEventListener("blur", () => {
 })
 
 genres.forEach((genre) => {
-	console.log(genre)
 	genre.addEventListener("click", () => switchPlayList(switchMusicByGenre(genre)))
 })
-
-
 
 let audioPlayers: AudioPlayer[] = []
 let sliderElements: SliderElement[] = []
 
+//Add the slider with genres
 function displayGenrelist() {
 	for (let genre in Genres) {
 		sliderElements.push(new SliderElement(genre))
@@ -48,10 +46,8 @@ function displayGenrelist() {
 	switchPlayList(genreSelected)
 }
 
-displayGenrelist()
-
+//Fetch and display the tracks with custom a player
 function displayPlaylist(genre: string) {
-
 	fetchTracks
 		.getTracksByGenre(genre)
 		.then((tracks) => {
@@ -80,11 +76,13 @@ function closeOtherAudioPlayers(songs: AudioPlayer[]) {
 				})
 		})
 
+		//Add goToNextSong method for next button
 		song.forwardBtn?.addEventListener("click", (event) => {
 			event.stopPropagation()
 			goToNextSong(songs, song.id)
 		})
 
+		//Add goToPreviousSong method for previous button
 		song.backwardBtn?.addEventListener("click", (event) => {
 			event.stopPropagation()
 			goToPreviousSong(songs, song.id)
@@ -92,11 +90,11 @@ function closeOtherAudioPlayers(songs: AudioPlayer[]) {
 	})
 }
 
+//Go to the next audio track when the current player ends in the playlist.
 function goToNextSong(songs: AudioPlayer[], currentSongId?: string) {
 	const getNextIndex = (currentIndex: number) => (currentIndex + 1) % songs.length
 	if (currentSongId) {
 		const currentIndex = songs.findIndex((song) => song.id === currentSongId)
-		console.log("currentIndex", currentIndex)
 		songs[currentIndex].closePlayer()
 		songs[getNextIndex(currentIndex)].openPlayer()
 	} else {
@@ -111,6 +109,7 @@ function goToNextSong(songs: AudioPlayer[], currentSongId?: string) {
 	}
 }
 
+//Go to the previous audio track when user click on previous button
 function goToPreviousSong(songs: AudioPlayer[], currentSongId: string) {
 	const getPreviousIndex = (currentIndex: number) => {
 		if (currentIndex === 0) {
@@ -124,14 +123,17 @@ function goToPreviousSong(songs: AudioPlayer[], currentSongId: string) {
 	songs[getPreviousIndex(currentIndex)].openPlayer()
 }
 
+//Remove the playlist container
 function removePlaylist() {
 	playlistContainer.innerHTML = ""
 }
 
+//Remove and Add the new playlist
 function switchPlayList(genre: Genres | null | string) {
 	if (genre === null) return
 	removePlaylist()
 	displayPlaylist(genre)
 }
 
+displayGenrelist()
 
