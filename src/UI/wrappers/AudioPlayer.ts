@@ -24,7 +24,7 @@ class AudioPlayer {
 	private isPlaying: boolean
 	private playTimeout: ReturnType<typeof setTimeout> | null
 	private readonly baseUrlImage: string
-	private readonly baseUrlSong: string
+	// private readonly baseUrlSong: string
 	private intervalId: NodeJS.Timer | null
 	private readonly diskOpenAnimation = () => this.disk?.classList.add("disk-animation-rotation")
 	private readonly diskCloseAnimation = () =>
@@ -71,7 +71,7 @@ class AudioPlayer {
 		this.isPlaying = false
 		this.wrapper = document.createElement("div")
 		this.baseUrlImage = "/music_sim/assets/images-genres"
-		this.baseUrlSong = "/music_sim/assets/musics"
+		// this.baseUrlSong = "/music_sim/assets/musics"
 	}
 
 	getHTML() {
