@@ -2,7 +2,6 @@ import { defineConfig } from 'vite'
 import { copy } from "vite-plugin-copy";
 
 export default defineConfig({
-    base: "/music_sim/",
     build: {
         rollupOptions: {
             input: {
