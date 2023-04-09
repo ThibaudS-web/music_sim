@@ -106,7 +106,7 @@ class AudioPlayer {
                     <div class="container-progress">
 						<div class="progress-bar"></div>
 					</div>
-                    <audio src=${path_url} preload="auto"></audio>
+                    <!-- <audio src=${path_url} preload="auto"></audio> -->
                     <div class="controls">
                         <i class="backward fa-solid fa-backward">
                         </i>
@@ -139,11 +139,11 @@ class AudioPlayer {
 		this.titleSong = this.wrapper.querySelector(".title-song")!
 		this.containerSong = this.wrapper.querySelector(".title-container")!
 
-		this.audioElement.src = `${this.baseUrlSong}/${path_url}`
+		// this.audioElement.src = `${this.baseUrlSong}/${path_url}`
 		this.disk.style.backgroundImage = `url(${this.baseUrlImage}/${image}`
 
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
-		this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
+		// this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
 		this.hiddenPlayer.addEventListener("click", this.openPlayer.bind(this))
 		this.playButton.addEventListener("click", this.playSong.bind(this))
 		this.pauseButton.addEventListener("click", this.pauseSong.bind(this))
