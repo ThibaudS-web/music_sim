@@ -24,7 +24,7 @@ genres.forEach((genre) => {
 	genre.addEventListener("click", () => switchPlayList(switchMusicByGenre(genre)))
 })
 
-let audioPlayers: AudioPlayer[] = []
+
 let sliderElements: SliderElement[] = []
 
 //Add the slider with genres
@@ -48,6 +48,7 @@ function displayGenrelist() {
 
 //Fetch and display the tracks with custom a player
 function displayPlaylist(genre: string) {
+	let audioPlayers: AudioPlayer[] = []
 	fetchTracks
 		.getTracksByGenre(genre)
 		.then((tracks) => {
@@ -121,6 +122,7 @@ function goToPreviousSong(songs: AudioPlayer[], currentSongId: string) {
 	const currentIndex = songs.findIndex((song) => song.id === currentSongId)
 	songs[currentIndex].closePlayer()
 	songs[getPreviousIndex(currentIndex)].openPlayer()
+	console.log(songs)
 }
 
 //Remove the playlist container
