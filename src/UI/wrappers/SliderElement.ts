@@ -2,7 +2,7 @@
 
 class SliderElement {
 	genre: string
-	base_URL = "/assets/images-genres"
+	base_URL = "/music_sim/assets/images-genres"
 	active: boolean
 	wrapperElement: HTMLElement
 	image: HTMLImageElement | null
