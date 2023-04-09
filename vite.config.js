@@ -15,10 +15,10 @@ export default defineConfig({
                     { src: 'src/static', dest: 'dist/static' }
                 ]
             })
-        ],
-        server: {
-            port: 3000,
-            strictPort: true
-        }
+        ]
+    },
+    server: {
+        port: 3000,
+        strictPort: true
     }
 })
