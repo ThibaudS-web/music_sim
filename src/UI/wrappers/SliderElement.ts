@@ -2,7 +2,7 @@
 
 class SliderElement {
 	genre: string
-	base_URL = "src/assets/images-genres"
+	base_URL = "/assets/images-genres"
 	active: boolean
 	wrapperElement: HTMLElement
 	image: HTMLImageElement | null

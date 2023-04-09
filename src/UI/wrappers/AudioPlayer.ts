@@ -70,8 +70,8 @@ class AudioPlayer {
 		this.intervalId = null
 		this.isPlaying = false
 		this.wrapper = document.createElement("div")
-		this.baseUrlImage = "/src/assets/images-genres"
-		this.baseUrlSong = "/src/assets/musics"
+		this.baseUrlImage = "/assets/images-genres"
+		this.baseUrlSong = "/assets/musics"
 	}
 
 	getHTML() {

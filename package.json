@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-preview": "npm run build && npm run preview"
   },
   "devDependencies": {
     "@types/node": "^18.15.0",
@@ -15,6 +16,7 @@
     "vite": "^4.1.0"
   },
   "dependencies": {
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "vite-plugin-copy": "^0.1.6"
   }
 }
