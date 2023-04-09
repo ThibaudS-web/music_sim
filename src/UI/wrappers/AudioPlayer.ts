@@ -106,7 +106,8 @@ class AudioPlayer {
                     <div class="container-progress">
 						<div class="progress-bar"></div>
 					</div>
-                    <audio src=${path_url}></audio>
+                    <audio src=${path_url}>
+					 Votre navigateur ne supporte pas la balise audio HTML5.</audio>
                     <div class="controls">
                         <i class="backward fa-solid fa-backward">
                         </i>
