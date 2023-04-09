@@ -487,6 +487,11 @@ section>h2 {
         width: 92vw;
     }
 
+    .image-genre-container {
+        width: 60px;
+        height: 60px;
+    }
+
     .player {
         gap: 0.5rem;
         width: 65%;
@@ -533,8 +538,8 @@ section>h2 {
     }
 
     .image-genre-container {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
     }
 
     .image-genre-container>img {
