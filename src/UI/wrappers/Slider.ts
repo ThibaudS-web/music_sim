@@ -4,10 +4,10 @@ import SliderElement from "./SliderElement"
 /** @description This class represents a slider element with the ability to slide left or right through its elements. It receives an array of SliderElement instances and a parent node where it will render the slider. The Slider class has a getHTML method that creates the HTML structure and displays the elements in the current state. The slider also has a slideLeft and slideRight method that move the elements and update the elementsDisplayed array accordingly. */
 
 class Slider {
-	elements: SliderElement[]
-	elementsDisplayed: SliderElement[]
-	nodeParent: HTMLElement
-	wrapper: HTMLElement
+	public elements: SliderElement[]
+	private elementsDisplayed: SliderElement[]
+	public nodeParent: HTMLElement
+	public wrapper: HTMLElement
 
 	constructor(elements: SliderElement[], nodeParent: HTMLElement) {
 		this.elements = elements

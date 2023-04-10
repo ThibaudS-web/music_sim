@@ -1,11 +1,11 @@
 /** @description This class represents an individual element in a Slider. Each SliderElement instance has a genre property, a base_URL property for the image source, an active property to indicate if it's the current active element, a wrapperElement property for the HTML element, an image property for the image element, and two methods for setting callbacks when clicked. The getHTML method creates and returns the HTML structure of the element with the genre name and image. The sizeChange method is called to update the class of the wrapperElement when the element is set to active or not. */
 
 class SliderElement {
-	genre: string
-	base_URL = "/music_sim/assets/images-genres"
-	active: boolean
-	wrapperElement: HTMLElement
-	image: HTMLImageElement | null
+	public readonly genre: string
+	private readonly base_URL = "/music_sim/assets/images-genres"
+	public active: boolean
+	public readonly wrapperElement: HTMLElement
+	
 	callbackOnMoving: (() => void) | null = null;
 
 	setClickOnSlideElementForMovingOnSlider(cb: () => void) {
@@ -15,7 +15,7 @@ class SliderElement {
 		this.callbackOnMoving = cb;
 		this.wrapperElement.addEventListener("click", cb);
 	}
-
+	
 	setClickOnSliderElementForGeneratePlayList(callback: () => void) {
 		callback()
 	}
@@ -24,7 +24,7 @@ class SliderElement {
 		this.genre = genre
 		this.active = false
 		this.wrapperElement = document.createElement("div")
-		this.image = null
+
 	}
 
 	getHTML() {
