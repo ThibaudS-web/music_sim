@@ -84,7 +84,7 @@ class AudioPlayer {
                         ${title} - ${author}
                     </p>
                     <p>
-                        Click for play
+                        Click to play
                     </p>
                 </div>
                 <div class="disk">                  
