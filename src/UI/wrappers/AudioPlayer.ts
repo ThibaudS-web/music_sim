@@ -176,17 +176,22 @@ class AudioPlayer {
 		this.disk?.classList.add("disk-left-moving")
 		this.hiddenPlayer?.classList.add("hidden-left-moving")
 
-		this.playTimeout = setTimeout(() => {
-			this.isPlaying = true
+		if (this.audioElement?.paused) {
+			this.playTimeout = setTimeout(() => {
+				this.isPlaying = true
 
-			this.playSong()
+				if (this.audioElement?.paused) {
+					this.playSong()
+				}
 
-			if (this.durationTimeSong && this.currentTimeSong) {
-				this.durationTimeSong.innerHTML = ` / ${this.formatDuration()}`
-				this.currentTimeSong.innerHTML = "00:00&nbsp;"
-			}
-			this.scrollTitle()
-		}, 1200)
+				if (this.durationTimeSong && this.currentTimeSong) {
+					this.durationTimeSong.innerHTML = ` / ${this.formatDuration()}`
+					this.currentTimeSong.innerHTML = "00:00&nbsp;"
+				}
+				this.scrollTitle()
+			}, 1200)
+		}
+
 	}
 
 	closePlayer() {
@@ -248,7 +253,7 @@ class AudioPlayer {
 		this.isPlaying = true
 
 		//If the music is ready to be played
-		if (this.audioElement?.readyState === 4 && this.audioElement?.paused) {
+		if (this.audioElement?.readyState === 4) {
 			console.log(this.id)
 			this.audioElement?.play()
 			this.incrementDurationCount(this.audioElement.currentTime)
