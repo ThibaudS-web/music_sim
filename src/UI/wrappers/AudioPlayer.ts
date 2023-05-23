@@ -248,7 +248,7 @@ class AudioPlayer {
 		this.isPlaying = true
 
 		//If the music is ready to be played
-		if (this.audioElement?.readyState === 4) {
+		if (this.audioElement?.readyState === 4 && this.audioElement?.paused) {
 			console.log(this.id)
 			this.audioElement?.play()
 			this.incrementDurationCount(this.audioElement.currentTime)
