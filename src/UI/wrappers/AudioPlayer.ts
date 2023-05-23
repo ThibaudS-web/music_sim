@@ -145,8 +145,7 @@ class AudioPlayer {
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
 		this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
 		this.hiddenPlayer.addEventListener("click", () => {
-			setTimeout(() => this.audioElement?.play()
-				, 1200)
+			this.audioElement?.play()
 			this.openPlayer()
 		})
 		this.playButton.addEventListener("click", this.playSong.bind(this))
@@ -191,7 +190,6 @@ class AudioPlayer {
 			}
 			this.scrollTitle()
 		}, 1200)
-		console.log(this.playTimeout)
 	}
 
 	closePlayer() {
@@ -253,7 +251,7 @@ class AudioPlayer {
 		this.isPlaying = true
 
 		//If the music is ready to be played
-		if (this.audioElement?.readyState === 4) {
+		if (this.audioElement?.readyState === 4 && this.audioElement?.paused && this.isPlaying) {
 			console.log(this.id)
 			this.audioElement?.play()
 			this.incrementDurationCount(this.audioElement.currentTime)
