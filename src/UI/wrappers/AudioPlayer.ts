@@ -144,7 +144,10 @@ class AudioPlayer {
 
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
 		this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
-		this.hiddenPlayer.addEventListener("click", this.openPlayer.bind(this))
+		this.hiddenPlayer.addEventListener("click", () => {
+			this.audioElement?.play()
+			this.openPlayer()
+		})
 		this.playButton.addEventListener("click", this.playSong.bind(this))
 		this.pauseButton.addEventListener("click", this.pauseSong.bind(this))
 	}
@@ -176,7 +179,7 @@ class AudioPlayer {
 		this.disk?.classList.add("disk-left-moving")
 		this.hiddenPlayer?.classList.add("hidden-left-moving")
 
-		
+		this.playTimeout = setTimeout(() => {
 			this.isPlaying = true
 
 			this.playSong()
@@ -186,7 +189,7 @@ class AudioPlayer {
 				this.currentTimeSong.innerHTML = "00:00&nbsp;"
 			}
 			this.scrollTitle()
-	
+		}, 1200)
 	}
 
 	closePlayer() {
@@ -249,7 +252,6 @@ class AudioPlayer {
 
 		//If the music is ready to be played
 		if (this.audioElement?.readyState === 4) {
-			console.log(this.id)
 			this.audioElement?.play()
 			this.incrementDurationCount(this.audioElement.currentTime)
 		}
