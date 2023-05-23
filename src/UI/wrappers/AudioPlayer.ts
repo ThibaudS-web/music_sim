@@ -144,9 +144,9 @@ class AudioPlayer {
 
 		this.containerProgress.addEventListener("click", this.setProgressOnClick.bind(this))
 		this.audioElement.addEventListener("timeupdate", this.UpdateProgressBar.bind(this))
-		this.hiddenPlayer.addEventListener("click", this.openPlayer.bind(this))
-		this.playButton.addEventListener("click", this.playSong.bind(this))
-		this.pauseButton.addEventListener("click", this.pauseSong.bind(this))
+		this.hiddenPlayer.addEventListener("touchstart", this.openPlayer.bind(this))
+		this.playButton.addEventListener("touchstart", this.playSong.bind(this))
+		this.pauseButton.addEventListener("touchstart", this.pauseSong.bind(this))
 	}
 
 	UpdateProgressBar() {
@@ -176,22 +176,17 @@ class AudioPlayer {
 		this.disk?.classList.add("disk-left-moving")
 		this.hiddenPlayer?.classList.add("hidden-left-moving")
 
-		if (this.audioElement?.paused) {
-			this.playTimeout = setTimeout(() => {
-				this.isPlaying = true
+		this.playTimeout = setTimeout(() => {
+			this.isPlaying = true
 
-				if (this.audioElement?.paused) {
-					this.playSong()
-				}
+			this.playSong()
 
-				if (this.durationTimeSong && this.currentTimeSong) {
-					this.durationTimeSong.innerHTML = ` / ${this.formatDuration()}`
-					this.currentTimeSong.innerHTML = "00:00&nbsp;"
-				}
-				this.scrollTitle()
-			}, 1200)
-		}
-
+			if (this.durationTimeSong && this.currentTimeSong) {
+				this.durationTimeSong.innerHTML = ` / ${this.formatDuration()}`
+				this.currentTimeSong.innerHTML = "00:00&nbsp;"
+			}
+			this.scrollTitle()
+		}, 1200)
 	}
 
 	closePlayer() {
